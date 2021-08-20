@@ -2,10 +2,10 @@ CFLAGS = -Wall -Werror -pedantic -std=c99
 LFLAGS = -lm  
 DEBUG = -g
 
-all: tp1
+all: img_proces
 
-tp1: main.o imagen.o pixel.o endianness.o filtros.o argumentos.o     
-	gcc main.o imagen.o pixel.o endianness.o argumentos.o filtros.o -o tp1 $(CFLAGS) $(LFLAGS)
+img_proces: main.o imagen.o pixel.o endianness.o filtros.o argumentos.o     
+	gcc main.o imagen.o pixel.o endianness.o argumentos.o filtros.o -o img_proces $(CFLAGS) $(LFLAGS)
 
 endianness.o: endianness.c endianness.h
 	gcc -c endianness.c $(CFLAGS)	 
@@ -27,4 +27,4 @@ main.o: main.c imagen.h pixel.h argumentos.h
 
 clean:
 	rm *.o
-	rm tp1
+	rm img_proces
